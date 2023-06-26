@@ -124,9 +124,9 @@ GitHub.
    
    <!-- npm install @reduxjs/toolkit -->                
    /*  Використовуючи Redux Toolkit, немає необхідності додавати в проект пакет redux, крім випадків, коли вам необхідна функція combineReducers() */
-   
    <!-- npm install @reduxjs/toolkit react-redux -->    
    /*  Достатньо встановити @reduxjs/toolkit для написання логіки Redux та react-redux для зв'язку стора з компонентами */
    
    <!-- npm i react-toastify -->                        /* для спливаючих повідомлень */
    <!-- npm install react-router-dom -->                /* бібліотека маршрутизації для React */
+   <!-- npm i redux-persist -->                         /*  */
