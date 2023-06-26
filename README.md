@@ -113,9 +113,20 @@ GitHub.
    скрипта будет указано в чем проблема.
 
 
-   <!-- npm install redux -->
-   <!-- npm install react-redux -->
-   <!-- npm install @redux-devtools/extension -->
-   <!-- npm install @reduxjs/toolkit -->
-   <!-- npm install @reduxjs/toolkit react-redux -->
+   <!-- npm install redux -->                           
+   /*  бібліотека, набір функцій для створення стора (сховища, store), роботи зі станом програми (state) та відправлення екшенів (дій, actions) */
+
+   <!-- npm install react-redux -->                     
+   /*  набір компонентів та хуків зв'язуючих компонентів React та Redux стор (store) */
+   
+   <!-- npm install @redux-devtools/extension -->       
+   /*  бібліотека, яка дозволить ініціалізувати логіку Redux DevTools та зв'язати її з розширенням в інструментах розробника */
+   
+   <!-- npm install @reduxjs/toolkit -->                
+   /*  Використовуючи Redux Toolkit, немає необхідності додавати в проект пакет redux, крім випадків, коли вам необхідна функція combineReducers() */
+   
+   <!-- npm install @reduxjs/toolkit react-redux -->    
+   /*  Достатньо встановити @reduxjs/toolkit для написання логіки Redux та react-redux для зв'язку стора з компонентами */
+   
    <!-- npm i react-toastify -->                        /* для спливаючих повідомлень */
+   <!-- npm install react-router-dom -->                /* бібліотека маршрутизації для React */
