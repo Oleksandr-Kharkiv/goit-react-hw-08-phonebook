@@ -9,6 +9,7 @@
   --box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
   --box-shadow-inset: inset 2px 0 2px rgba(0, 0, 0, 0.16);
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body::-webkit-scrollbar {
@@ -23,8 +24,8 @@ body::-webkit-scrollbar-thumb {
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Raleway',
-    sans-serif;
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 20px;
@@ -41,33 +42,41 @@ code {
     monospace;
 }
 
-.wrap {
+.container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin-left: 0;
   margin-right: 0;
 }
+.wrap {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 0;
+  margin-right: 0;
+}
 h1 {
-    margin: 0;
-    padding: 20px 5px;
-    text-align: center;
-    font-size: 30px;
-    font-weight: 900;
-    line-height: calc(40/30);
-    letter-spacing: .05em;
-    border-radius: 5px;
-    color: var(--accent-color);
-    background-color: var(--background-color-component);
-    box-shadow: var(--box-shadow);
+  margin: 20px 0 0;
+  padding: 20px 5px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 900;
+  line-height: calc(40 / 30);
+  letter-spacing: 0.05em;
+  border-radius: 5px;
+  color: var(--accent-color);
+  background-color: var(--background-color-component);
+  box-shadow: var(--box-shadow);
 }
 h2 {
-  margin: 30px 0 0;
+  margin: 20px 0 0;
   padding: 20px 5px;
   text-align: center;
   font-size: 26px;
   font-weight: 900;
-  line-height: calc(30/26);
-  letter-spacing: .05em;
+  line-height: calc(30 / 26);
+  letter-spacing: 0.05em;
   border-radius: 5px;
   color: var(--accent-color);
   background-color: var(--background-color-component);

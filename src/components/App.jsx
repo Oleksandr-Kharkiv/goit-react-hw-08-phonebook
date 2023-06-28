@@ -1,33 +1,36 @@
-import { ContactForm } from './ContactForm/ContactForm';
-import { ContactList } from './ContactList/ContactList';
-import { Filter } from './Filter/Filter';
-import { useSelector, useDispatch } from "react-redux";
-import { selectError, selectIsLoading } from "redux/selectors";
-import { useEffect } from "react";
-import { fetchContacts } from "redux/operations";
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchContacts } from 'redux/operations';
+import Header from './Header/Header';
+import {Routes, Route} from 'react-router-dom'
+import HomePage from './Pages/HomePage'
+import {RegisterPage} from './Pages/RegisterPage'
+import {LogInPage} from './Pages/LogInPage'
+import ContactsPage from './Pages/ContactsPage'
 
 export const App = () => {
   const dispatch = useDispatch();
-  const isLoading = useSelector(selectIsLoading);
-  const error = useSelector(selectError);
+ 
   /*--------------------------------- початковий запит на бекенд для отримання списку контактів */
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
 
   return (
-    <div className="wrap">
-      <div>
-        <h1>Phonebook</h1>
-        <ContactForm />
-        <h2>Contacts</h2>
-        <Filter />
-        {isLoading && !error && <b>Request in progress...</b>}
-        <ContactList />
-      </div>
+    <div className="container">
+      <Header />
+      <Routes>
+        <Route path="/" component={HomePage}></Route>
+        <Route path="/register" component={RegisterPage}></Route>
+        <Route path="/login" component={LogInPage}></Route>
+        <Route path="/contacts" component={ContactsPage}></Route>
+      </Routes>
     </div>
   );
 };
+
+
+
 
 
 

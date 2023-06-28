@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 export const ContactFormComponent = styled.form`
-    margin-top: 30px;
+    margin-top: 5px;
     display: flex;
     flex-direction: column;
     gap: 15px;

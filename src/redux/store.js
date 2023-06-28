@@ -1,9 +1,11 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import { configureStore, 
+  // combineReducers 
+} from '@reduxjs/toolkit';
 import { filterReducer } from './filterSlice';
 import { contactsReducer } from './contactsSlice';
 import {
   persistStore,
-  persistReducer,
+  // persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -13,24 +15,24 @@ import {
 } from 'redux-persist';  /* для збереження даних в local storage */
 // import { filterReducer } from './filterSlice';
 // import { contactsReducer } from './contactsSlice';
-import storage from 'redux-persist/lib/storage';
+// import storage from 'redux-persist/lib/storage';
 
-const reducerComb = combineReducers({
-  contacts: contactsReducer,
-  filter: filterReducer,
-});
+// const reducerComb = combineReducers({
+//   contacts: contactsReducer,
+//   filter: filterReducer,
+// });
 
-const persistConfig = {
-  key: 'contacts',
-  storage,
-  whitelist: ['contacts'],
-};
+// const persistConfig = {
+//   key: 'contacts',
+//   storage,
+//   whitelist: ['contacts'],
+// };
 
-const persistedCombReducer = persistReducer(persistConfig, reducerComb)
+// const persistedCombReducer = persistReducer(persistConfig, reducerComb)
 
 export const store = configureStore({
   reducer: {
-    contacts: persistedCombReducer,
+    contacts: contactsReducer,
     filters: filterReducer,
   },
   middleware(getDefaultMiddleware) {
