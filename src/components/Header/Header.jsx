@@ -7,12 +7,14 @@ const Header = () => {
   return (
     <HeaderComponent>
       <NavBar />
-      <AuthNav/>
+      <AuthNav />
       <UserMenu />
-     </HeaderComponent>
+    </HeaderComponent>
   );
 };
 export default Header;
+
+
 
 
 // ========================== варіант css-модулі ==================

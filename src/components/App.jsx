@@ -1,16 +1,16 @@
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchContacts } from 'redux/operations';
-import Header from './Header/Header';
-import {Routes, Route} from 'react-router-dom'
-import HomePage from './Pages/HomePage'
-import {RegisterPage} from './Pages/RegisterPage'
-import {LogInPage} from './Pages/LogInPage'
-import ContactsPage from './Pages/ContactsPage'
+import { Routes, Route } from 'react-router-dom';
+import Layout from './Layout/Layout';
+import HomePage from './Pages/HomePage';
+import ContactsPage from './Pages/ContactsPage';
+import RegisterPage from './Pages/RegisterPage';
+import LogInPage from './Pages/LogInPage';
 
 export const App = () => {
   const dispatch = useDispatch();
- 
+
   /*--------------------------------- початковий запит на бекенд для отримання списку контактів */
   useEffect(() => {
     dispatch(fetchContacts());
@@ -18,18 +18,18 @@ export const App = () => {
 
   return (
     <div className="container">
-      <Header />
       <Routes>
-        <Route path="/" component={HomePage}></Route>
-        <Route path="/register" component={RegisterPage}></Route>
-        <Route path="/login" component={LogInPage}></Route>
-        <Route path="/contacts" component={ContactsPage}></Route>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />}></Route>
+          <Route path="/contacts" element={<ContactsPage />}></Route>
+          <Route path="/register" element={<RegisterPage />}></Route>
+          <Route path="/login" element={<LogInPage />}></Route>
+          <Route path="*" element={<HomePage />} />
+        </Route>
       </Routes>
     </div>
   );
 };
-
-
 
 
 

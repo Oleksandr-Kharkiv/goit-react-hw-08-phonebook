@@ -10,9 +10,7 @@ const ContactsPage = () => {
 
   return (
     <div className="wrap">
-      <h1>Phonebook</h1>
       <ContactForm />
-      <h2>Contacts</h2>
       <Filter />
       {isLoading && !error && <b>Request in progress...</b>}
       <ContactList />

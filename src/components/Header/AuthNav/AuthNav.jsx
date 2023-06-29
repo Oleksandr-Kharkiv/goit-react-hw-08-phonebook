@@ -3,8 +3,8 @@ import { Navbar, Link } from './AutnNav.styled';
 const AuthNav = () => {
   return (
     <Navbar>
-      <Link to="/">Registration</Link>
-      <Link to="movies">LogIn</Link>
+      <Link to="/register">Registration</Link>
+      <Link to="/login">Login</Link>
     </Navbar>
   );
 };

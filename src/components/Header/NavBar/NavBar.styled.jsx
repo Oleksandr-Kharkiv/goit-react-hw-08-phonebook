@@ -16,12 +16,12 @@ export const Link = styled(NavLink)`
   font-size: 20px;
   font-weight: 700;
   transition: color 200ms var(--timing-function);
-  /* &.active {
+  &.active {
     border-radius: 5px;
     border-color: inherit;
     background-color: var(--background-color);
     box-shadow: var(--box-shadow-inset);
-  } */
+  }
   &:hover {
     color: var(--accent-color);
   }

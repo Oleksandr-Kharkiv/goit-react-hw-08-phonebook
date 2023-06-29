@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const ContactFormComponent = styled.form`
+export const RegisterFormComponent = styled.form`
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -35,7 +35,7 @@ export const FormInput = styled.input`
     border-color: inherit;
 `     
 
-export const FormAddContactBtn = styled.button`
+export const FormRegisterUserBtn = styled.button`
      width: 100%;
     cursor: pointer;
     padding: 10px;
