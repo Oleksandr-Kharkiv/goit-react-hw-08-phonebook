@@ -13,7 +13,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store} /* для створення глобального State */>
       {/* <PersistGate loading={null} persistor={persistor}> */}
-        <BrowserRouter basename="/goit-react-hw-08-movies" /* для маршрутизації */>
+        <BrowserRouter basename="/goit-react-hw-08-phonebook" /* для маршрутизації */>
           <App />
         </BrowserRouter>
       {/* </PersistGate> */}
