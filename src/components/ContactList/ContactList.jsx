@@ -2,9 +2,9 @@ import { useSelector } from "react-redux";
 // import { getContacts, getFilter } from 'redux/selectors'; /*--- варіант зі старими селекторами--------*/
 import { selectVisibleContacts } from 'redux/selectors'; 
 import { ContactListComponent } from './ContactList.styled';
-import { Contact } from '../Contact/Contact';
+import Contact from '../Contact/Contact';
 
-export const ContactList = () => {
+const ContactList = () => {
   const filtred = useSelector(selectVisibleContacts); /*------ логіка фільтрації винесена в selector */
 
   /*-----------------------------hw-07--- варіант зі старими селекторами--------*/
@@ -29,7 +29,7 @@ export const ContactList = () => {
   );
 };
 
-
+export default ContactList
 
 
 // ========================== варіант css-модулі ==================

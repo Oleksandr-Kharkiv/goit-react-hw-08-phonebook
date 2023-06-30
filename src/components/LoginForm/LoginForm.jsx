@@ -1,78 +1,53 @@
-// import { useDispatch, useSelector } from 'react-redux'; //  для відправки та отримання даних з лобального state
-// import { nanoid } from '@reduxjs/toolkit'; //  для генерації випадкових ID номерів
-// import { useState } from 'react'; // для створення локального state
-// import { addContact } from 'redux/operations';
+import { useDispatch } from 'react-redux'; // useDispatch для відправки даних до глобального state
 import {
   LoginFormComponent,
   FormLabel,
   FormInput,
   FormLoginUserBtn,
 } from './LoginForm.styled';
-// import { selectContacts } from 'redux/selectors';
+import { logIn } from '../../redux/operations';
 
-export const LoginForm = () => {
-  // const [newName, setNewName] = useState(''); /* локальний state для форми (потрібно тільки ім'я для порівнняння з нововведеними даними) */
-  // const dispatch = useDispatch();  /* отримую посилання на метод useDispatch() для відправки даних у глобальний state */
-  // const myContacts = useSelector(selectContacts);  /* отримую масив об'єктів (контактів) з глобального state */
-  // let nameInputId = nanoid();
-  // let numberInputId = nanoid();
+const LoginForm = () => {
+  const dispatch = useDispatch();
 
-  // const handleSubmit = e => {
-  //   e.preventDefault();
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log(e);
+    const form = e.target;
 
-  //   const form = e.target;
-  //   setNewName(form.elements.name.value);
-
-  //   let isInMyContacts = myContacts.find(
-  //     contact => contact.name.toLowerCase() === newName.toLowerCase()
-  //   );
-
-  //   if (isInMyContacts) {
-  //     form.reset();
-  //     return alert(`${newName} is already in contacts`);
-  //   }
-  //   const newContact = {
-  //     name: form.elements.name.value,
-  //     number: form.elements.number.value,
-  //   }
-  //   dispatch(addContact(newContact));
-  //   form.reset();
-  // };
+    dispatch(
+      logIn({
+        email: form.elements.email.value,
+        password: form.elements.password.value,
+      })
+    );
+    form.reset();
+  };
 
   return (
-      <LoginFormComponent 
-      // onSubmit={handleSubmit} 
-      autoComplete="off">
-        <FormLabel 
-        // htmlFor={nameInputId}
-        >
-          Login</FormLabel>
-        <FormInput
-          // id={nameInputId}
-          type="text"
-          name="name"
-          pattern="^[A-Za-z\u0080-\uFFFF ']+$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-          required
-        />
+    <LoginFormComponent onSubmit={handleSubmit} autoComplete="off">
+      <FormLabel htmlFor={444}>Login</FormLabel>
+      <FormInput
+        id={444}
+        type="email"
+        name="email"
+        required
+      />
 
-        <FormLabel 
-        // htmlFor={numberInputId}
-        >Password</FormLabel>
-        <FormInput
-          // id={numberInputId}
-          type="tel"
-          name="number"
-          pattern="^(\+?[0-9.\(\)\-\s]*)$"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-        />
+      <FormLabel htmlFor={555}>Password</FormLabel>
+      <FormInput
+        id={555}
+        type="password"
+        name="password"
+        required
+      />
 
-        <FormLoginUserBtn type="submit">Login</FormLoginUserBtn>
-      </LoginFormComponent>
+      <FormLoginUserBtn type="submit">Login</FormLoginUserBtn>
+    </LoginFormComponent>
   );
 };
 
+export default LoginForm;
 
 
 

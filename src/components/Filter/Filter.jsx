@@ -3,7 +3,7 @@ import { useDispatch} from 'react-redux';
 import { setNewFilter } from 'redux/filterSlice';
 import { FilterComponent, FilterLabel, FilterInput } from './Filter.styled';
 
-export const Filter = () => {
+const Filter = () => {
   const dispatch = useDispatch();
   const filterInputId = nanoid();
 
@@ -13,6 +13,7 @@ export const Filter = () => {
   };
   
   return (
+    <>
     <FilterComponent>
       <FilterLabel>Filter</FilterLabel>
       <FilterInput
@@ -26,10 +27,11 @@ export const Filter = () => {
         autoComplete="off"
       />
     </FilterComponent>
+    </>
   );
 };
 
-
+export default Filter
 
 
 

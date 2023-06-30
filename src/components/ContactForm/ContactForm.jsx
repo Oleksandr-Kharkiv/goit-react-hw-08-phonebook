@@ -10,7 +10,7 @@ import {
 } from './ContactForm.styled';
 import { selectContacts } from 'redux/selectors';
 
-export const ContactForm = () => {
+const ContactForm = () => {
   const [newName, setNewName] = useState(''); /* локальний state для форми (потрібно тільки ім'я для порівнняння з нововведеними даними) */
   const dispatch = useDispatch();  /* отримую посилання на метод useDispatch() для відправки даних у глобальний state */
   const myContacts = useSelector(selectContacts);  /* отримую масив об'єктів (контактів) з глобального state */
@@ -68,6 +68,7 @@ export const ContactForm = () => {
   );
 };
 
+export default ContactForm
 
 
 

@@ -9,7 +9,7 @@ import {
 } from './Contacts.styled';
 
 
-export const Contact = ({ id, name, number}) => {
+const Contact = ({ id, name, number}) => {
   const dispatch = useDispatch();
 
   return (
@@ -21,6 +21,8 @@ export const Contact = ({ id, name, number}) => {
     </ContactComponent>
   );
 };
+
+export default Contact
 
 Contact.propTypes = {
     id: PropTypes.string.isRequired,

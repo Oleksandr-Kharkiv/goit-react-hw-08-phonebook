@@ -11,7 +11,7 @@ export const UserMenuTitle = styled.p`
   font-weight: 700;
   font-size: 16px;
   color: var(--second-text-color);
-  animation: rotate 2s ease-in-out alternate infinite;
+  animation: rotate 7s ease-in-out alternate infinite;
 
   &:before {
     content: attr(data-shadow);
@@ -20,19 +20,27 @@ export const UserMenuTitle = styled.p`
     position: absolute;
     z-index: -1;
     margin: -0.1em 0 0 0;
-    animation: skew 2s ease-in-out alternate infinite;
+    animation: skew 7s ease-in-out alternate infinite;
     transform-origin: bottom;
   }
   @keyframes rotate {
     from {
       transform: rotateY(-10deg);
-      text-shadow: 1px -1px #ccc, 2px -1px #bbb, 3px -2px #aaa, 4px -2px #999,
-        5px -3px #888, 6px -3px #777;
+      text-shadow: 1px -1px #ccc, 
+      2px -1px #bbb, 
+      3px -2px #aaa, 
+      4px -2px #aaa,
+      5px -3px #999, 
+      6px -3px #888;
     }
     to {
       transform: rotateY(10deg);
-      text-shadow: -1px -1px #ccc, -2px -1px #bbb, -3px -2px #aaa,
-        -4px -2px #999, -5px -3px #888, -6px -3px #777;
+      text-shadow: -1px -1px #ccc, 
+      -2px -1px #bbb,
+      -3px -2px #aaa,
+      -4px -2px #aaa,
+      -5px -3px #999,
+      -6px -3px #888;
     }
   }
   @keyframes skew {

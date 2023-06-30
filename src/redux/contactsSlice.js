@@ -6,7 +6,7 @@ const initialState = {
   isLoading: false,
   error: null,
 };
-/*---------------------------------------- для старого варіанту запису extraReducers */
+/*----------------------------------------функції для старого варіанту запису extraReducers */
 // const handlePending = state => {
 //   state.isLoading = true;
 // };

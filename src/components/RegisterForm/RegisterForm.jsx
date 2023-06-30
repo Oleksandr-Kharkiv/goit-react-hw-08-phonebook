@@ -1,95 +1,63 @@
-// import { useDispatch, useSelector } from 'react-redux'; //  для відправки та отримання даних з лобального state
-// import { nanoid } from '@reduxjs/toolkit'; //  для генерації випадкових ID номерів
-// import { useState } from 'react'; // для створення локального state
-// import { addContact } from 'redux/operations';
+import { useDispatch } from 'react-redux'; //  для відправки та отримання даних з лобального state
 import {
   RegisterFormComponent,
   FormLabel,
   FormInput,
   FormRegisterUserBtn,
 } from './RegisterForm.styled';
-// import { selectContacts } from 'redux/selectors';
+import { register } from '../../redux/operations';
 
-export const RegisterForm = () => {
-  // const [newName, setNewName] = useState(''); /* локальний state для форми (потрібно тільки ім'я для порівнняння з нововведеними даними) */
-  // const dispatch = useDispatch();  /* отримую посилання на метод useDispatch() для відправки даних у глобальний state */
-  // const myContacts = useSelector(selectContacts);  /* отримую масив об'єктів (контактів) з глобального state */
-  // let nameInputId = nanoid();
-  // let numberInputId = nanoid();
+const RegisterForm = () => {
+  const dispatch = useDispatch();
 
-  // const handleSubmit = e => {
-  //   e.preventDefault();
+  const handleSubmit = e => {
+    e.preventDefault();
+    const form = e.target;
 
-  //   const form = e.target;
-  //   setNewName(form.elements.name.value);
-
-  //   let isInMyContacts = myContacts.find(
-  //     contact => contact.name.toLowerCase() === newName.toLowerCase()
-  //   );
-
-  //   if (isInMyContacts) {
-  //     form.reset();
-  //     return alert(`${newName} is already in contacts`);
-  //   }
-  //   const newContact = {
-  //     name: form.elements.name.value,
-  //     number: form.elements.number.value,
-  //   }
-  //   dispatch(addContact(newContact));
-  //   form.reset();
-  // };
+    dispatch(
+      register({
+        user: form.elements.user.value,
+        email: form.elements.email.value,
+        password: form.elements.password.value,
+      })
+    );
+    form.reset();
+  };
 
   return (
-    <RegisterFormComponent
-      // onSubmit={handleSubmit}
-      autoComplete="off"
-    >
-      <FormLabel
-      // htmlFor={nameInputId}
-      >
-        Name
-      </FormLabel>
+    <RegisterFormComponent onSubmit={handleSubmit} autoComplete="off">
+      <FormLabel htmlFor={111}>Name</FormLabel>
       <FormInput
-        // id={nameInputId}
+        id={111}
         type="text"
-        name="name"
+        name="user"
         pattern="^[A-Za-z\u0080-\uFFFF ']+$"
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
       />
 
-      <FormLabel
-      // htmlFor={nameInputId}
-      >
-        Login
-      </FormLabel>
+      <FormLabel htmlFor={222}>Email</FormLabel>
       <FormInput
-        // id={nameInputId}
-        type="text"
-        name="name"
-        pattern="^[A-Za-z\u0080-\uFFFF ']+$"
-        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+        id={222}
+        type="email"
+        name="email"
         required
       />
 
-      <FormLabel
-      // htmlFor={numberInputId}
-      >
-        Password
-      </FormLabel>
+      <FormLabel htmlFor={333}>Password</FormLabel>
       <FormInput
-        // id={numberInputId}
-        type="tel"
-        name="number"
-        pattern="^(\+?[0-9.\(\)\-\s]*)$"
-        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+        id={333}
+        type="password"
+        name="password"
         required
       />
 
-      <FormRegisterUserBtn type="submit">Register</FormRegisterUserBtn>
+      <FormRegisterUserBtn type="submit">Registration</FormRegisterUserBtn>
     </RegisterFormComponent>
   );
 };
+
+export default RegisterForm;
 
 // ----------------------------------------Функціональні копоненти-------------
 

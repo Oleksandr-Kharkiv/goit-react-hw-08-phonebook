@@ -1,7 +1,40 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-axios.defaults.baseURL = "https://64931410428c3d2035d14bdb.mockapi.io";
+axios.defaults.baseURL = "https://connections-api.herokuapp.com/";
+/* credentials - назва змінної, об'єкту що передається при виклику (кожен раз різні дані) */
+ 
+export const register = createAsyncThunk(
+    "auth/register",
+    async credentials => {
+      try {
+        const response = await axios.post('/users/signup', credentials);
+        console.log(`це з register`);
+        console.log(response.data);
+        return response.data;
+      } catch (e) {
+        console.log(`це з register`);
+        return console.log(e.message);
+      }
+    }
+  );
+
+  export const logIn = createAsyncThunk(
+    "auth/login",
+    async credentials => {
+      try {
+        const response = await axios.post('/users/login', credentials);
+        console.log(`це з login`);
+        console.log(response.data);
+        return response.data;
+      } catch (e) {
+        console.log(`це з login`);
+        return console.log(e.message);
+      }
+    }
+  );
+
+
 
 export const fetchContacts = createAsyncThunk(
     "contacts/fetchAll",
@@ -9,7 +42,7 @@ export const fetchContacts = createAsyncThunk(
       try {
         const response = await axios.get("/contacts");
         // console.log(`це з fetchContacts:`);
-        console.log(response.data);
+        // console.log(response.data);
         return response.data;
         // const {data} = await axios.get("/contacts");                      /* з деструктуризацією */
         // return data;
@@ -46,3 +79,4 @@ export const fetchContacts = createAsyncThunk(
       }
     }
   );
+
