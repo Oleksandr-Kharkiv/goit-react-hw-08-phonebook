@@ -1,6 +1,6 @@
-// import { useDispatch } from 'react-redux';
-// import { useEffect } from 'react';
-// import { fetchContacts } from 'redux/operations';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchCurrentUser } from 'redux/operations';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import HomePage from './Pages/HomePage';
@@ -9,12 +9,12 @@ import RegisterPage from './Pages/RegisterPage';
 import LogInPage from './Pages/LogInPage';
 
 export const App = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   /*--------------------------------- початковий запит на бекенд для отримання списку контактів */
-  // useEffect(() => {
-  //   dispatch(fetchContacts());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
 
   return (
       <Routes>

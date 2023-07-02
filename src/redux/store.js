@@ -1,11 +1,10 @@
-import { configureStore, 
-  // combineReducers 
-} from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import { filterReducer } from './filterSlice';
 import { contactsReducer } from './contactsSlice';
+import { authReducer } from './authSlice';
 import {
   persistStore,
-  // persistReducer,
+  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -13,25 +12,19 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';  /* для збереження даних в local storage */
-// import { filterReducer } from './filterSlice';
-// import { contactsReducer } from './contactsSlice';
-// import storage from 'redux-persist/lib/storage';
+import storage from 'redux-persist/lib/storage';
 
-// const reducerComb = combineReducers({
-//   contacts: contactsReducer,
-//   filter: filterReducer,
-// });
+const persistConfig = {
+  key: 'contacts',
+  storage,
+  whitelist: ['token'],
+};
 
-// const persistConfig = {
-//   key: 'contacts',
-//   storage,
-//   whitelist: ['contacts'],
-// };
-
-// const persistedCombReducer = persistReducer(persistConfig, reducerComb)
+const persistedCombReducer = persistReducer(persistConfig, authReducer)
 
 export const store = configureStore({
   reducer: {
+    auth: persistedCombReducer,
     contacts: contactsReducer,
     filters: filterReducer,
   },
@@ -45,6 +38,7 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
+
 
 
 /* ------------------------------- hw-07 -----------------------------*/

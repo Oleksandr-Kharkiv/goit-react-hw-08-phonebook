@@ -6,15 +6,6 @@ const initialState = {
   isLoading: false,
   error: null,
 };
-/*----------------------------------------функції для старого варіанту запису extraReducers */
-// const handlePending = state => {
-//   state.isLoading = true;
-// };
-
-// const handleRejected = (state, action) => {
-//   state.isLoading = false;
-//   state.error = action.payload;
-// };
 
 export const contactsSlice = createSlice({
   name: 'contacts',
@@ -54,16 +45,34 @@ export const contactsSlice = createSlice({
       state.error = null;
       const index = state.items.findIndex(
         contact => contact.id === action.payload.id
-      );
-      state.items.splice(index, 1);
-    });
-    builder.addCase(deleteContact.rejected, (state, action) => {
-      state.isLoading = false;
-      state.error = action.payload;
-    });
-  },
+        );
+        state.items.splice(index, 1);
+      });
+      builder.addCase(deleteContact.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      });
+    },
+  });
+  
+  export const contactsReducer = contactsSlice.reducer;
+
 
   /*--------------------------------------hw-07----- старий варіант запису extraReducers ---------------------*/
+
+
+// const handlePending = state => {
+//   state.isLoading = true;
+// };
+
+// const handleRejected = (state, action) => {
+//   state.isLoading = false;
+//   state.error = action.payload;
+// };
+
+// export const contactsSlice = createSlice({
+//   name: 'contacts',
+//   initialState: initialState,
   // extraReducers: {
   //   [fetchContacts.pending]: handlePending,
   //   [fetchContacts.fulfilled](state, action) {
@@ -90,9 +99,8 @@ export const contactsSlice = createSlice({
   //   },
   //   [deleteContact.rejected]: handleRejected,
   // },
-});
+  // })
 
-export const contactsReducer = contactsSlice.reducer;
 
 
 
