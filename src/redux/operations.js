@@ -23,12 +23,12 @@ export const register = createAsyncThunk(
         email,
         password,
       });
-      console.log(`це з register`);
-      console.log(data);
+      // console.log(`це з register`);
+      // console.log(data);
       token.set(data.token);
       return data;
     } catch (e) {
-      console.log(`це з register`);
+      // console.log(`це з register`);
       return console.log(e.message);
     }
   }
@@ -37,12 +37,12 @@ export const register = createAsyncThunk(
 export const logIn = createAsyncThunk('auth/login', async credentials => {
   try {
     const { data } = await axios.post('/users/login', credentials);
-    console.log(`це з login`);
-    console.log(data);
+    // console.log(`це з login`);
+    // console.log(data);
     token.set(data.token);
     return data;
   } catch (e) {
-    console.log(`це з login`);
+    // console.log(`це з login`);
     return console.log(e.message);
   }
 });
@@ -50,11 +50,11 @@ export const logIn = createAsyncThunk('auth/login', async credentials => {
 export const logOut = createAsyncThunk('auth/logout', async () => {
   try {
     const { data } = await axios.post('/users/logout');
-    console.log(`це з logout`);
+    // console.log(`це з logout`);
     console.log(data);
     token.unset();
   } catch (e) {
-    console.log(`це з logout`);
+    // console.log(`це з logout`);
     return console.log(e.message);
   }
 });
@@ -75,11 +75,11 @@ export const fetchCurrentUser = createAsyncThunk(
     ); /* додаю токен з local storage в заголовок axios.get запиту */
     try {
       const { data } = await axios.get('/users/current');
-      console.log(`це з fetchCurrentUser`);
-      console.log(data);
+      // console.log(`це з fetchCurrentUser`);
+      // console.log(data);
       return data;
     } catch (e) {
-      console.log(`це з fetchCurrentUser`);
+      // console.log(`це з fetchCurrentUser`);
       return console.log(e.message);
     }
   }
@@ -90,8 +90,8 @@ export const fetchContacts = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get('/contacts');
-      console.log(`це з fetchContacts:`);
-      console.log(response.data);
+      // console.log(`це з fetchContacts:`);
+      // console.log(response.data);
       return response.data;
       // const {data} = await axios.get("/contacts");                      /* з деструктуризацією */
       // return data;
@@ -106,8 +106,8 @@ export const addContact = createAsyncThunk(
   async ({ name, number }, thunkAPI) => {
     try {
       const response = await axios.post('/contacts', { name, number });
-      console.log(`це з addContact`);
-      console.log(response.data);
+      // console.log(`це з addContact`);
+      // console.log(response.data);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -120,8 +120,8 @@ export const deleteContact = createAsyncThunk(
   async (contactId, thunkAPI) => {
     try {
       const response = await axios.delete(`/contacts/${contactId}`);
-      console.log(`це з deleteContact`);
-      console.log(response.data);
+      // console.log(`це з deleteContact`);
+      // console.log(response.data);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

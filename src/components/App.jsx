@@ -6,6 +6,7 @@ import { Routes, Route } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute';
+// import { selectisFetchCurrentUser } from 'redux/selectors';
 
 // import HomePage from './Pages/HomePage';
 // import ContactsPage from './Pages/ContactsPage';
@@ -19,7 +20,7 @@ const LogInPage = lazy(() => import('./Pages/LogInPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
-  
+  // const isRefreshing = useSelector(selectisFetchCurrentUser);
   /*--------------------------------- початковий запит на бекенд для отримання списку контактів */
   useEffect(() => {
     dispatch(fetchCurrentUser());
