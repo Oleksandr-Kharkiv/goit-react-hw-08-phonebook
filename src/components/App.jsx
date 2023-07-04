@@ -1,36 +1,63 @@
+import { lazy } from 'react';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchCurrentUser } from 'redux/operations';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './Layout/Layout';
-import HomePage from './Pages/HomePage';
-import ContactsPage from './Pages/ContactsPage';
-import RegisterPage from './Pages/RegisterPage';
-import LogInPage from './Pages/LogInPage';
+import PublicRoute from './PublicRoute';
+import PrivateRoute from './PrivateRoute';
+
+// import HomePage from './Pages/HomePage';
+// import ContactsPage from './Pages/ContactsPage';
+// import RegisterPage from './Pages/RegisterPage';
+// import LogInPage from './Pages/LogInPage';
+
+const HomePage = lazy(() => import('./Pages/HomePage'));
+const ContactsPage = lazy(() => import('./Pages/ContactsPage'));
+const RegisterPage = lazy(() => import('./Pages/RegisterPage'));
+const LogInPage = lazy(() => import('./Pages/LogInPage'));
 
 export const App = () => {
   const dispatch = useDispatch();
-
+  
   /*--------------------------------- початковий запит на бекенд для отримання списку контактів */
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
 
   return (
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />}></Route>
-          <Route path="/contacts" element={<ContactsPage />}></Route>
-          <Route path="/register" element={<RegisterPage />}></Route>
-          <Route path="/login" element={<LogInPage />}></Route>
-          <Route path="*" element={<HomePage />} />
-        </Route>
-      </Routes>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />}></Route>
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRoute>
+              <ContactsPage />
+            </PrivateRoute>
+          }
+        ></Route>
+        <Route
+          path="/register"
+          element={
+            <PublicRoute>
+              <RegisterPage />
+            </PublicRoute>
+          }
+        ></Route>
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
+              <LogInPage />
+            </PublicRoute>
+          }
+        ></Route>
+        <Route path="*" element={<HomePage />} />
+      </Route>
+    </Routes>
   );
 };
-
-
-
 
 // ---------------------------------Функціональні компоненти------------------
 

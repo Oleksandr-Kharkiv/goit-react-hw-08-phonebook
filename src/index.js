@@ -11,8 +11,8 @@ import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Provider store={store} /* для створення глобального State */>
-      <PersistGate loading={null} persistor={persistor}>
+    <Provider store={store} /* для створення глобального State*/ >
+      <PersistGate loading={null} persistor={persistor} /* для збереження даних в local storage*/ >
         <BrowserRouter basename="/goit-react-hw-08-phonebook">
           <App />
         </BrowserRouter>

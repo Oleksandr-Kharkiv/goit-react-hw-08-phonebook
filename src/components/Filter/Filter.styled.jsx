@@ -6,7 +6,7 @@ export const FilterComponent = styled.div`
     align-items: center;
     gap: 15px;
     padding: 20px 30px;
-    max-width: 400px;
+    max-width: 450px;
     height: auto;
     border-radius: 5px;
     background-color: var(--background-color-component);

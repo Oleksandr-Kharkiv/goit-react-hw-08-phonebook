@@ -5,13 +5,15 @@ export const UserMenuComponent = styled.div`
   gap: 10px;
 `;
 export const UserMenuTitle = styled.p`
-  position: relative;
-  margin: 12px 5px;
-  font-size: 20px;
-  font-weight: 700;
-  font-size: 16px;
-  color: var(--second-text-color);
-  animation: rotate 7s ease-in-out alternate infinite;
+display: block;
+   position: relative;
+   margin: 5px;
+   width: 100%;
+   font-size: 20px;
+   font-weight: 700;
+   font-size: 16px;
+   color: var(--second-text-color);
+   animation: rotate 7s ease-in-out alternate infinite;
 
   &:before {
     content: attr(data-shadow);
@@ -51,7 +53,7 @@ export const UserMenuTitle = styled.p`
       transform: scaleY(0.3) skewX(-20deg);
     }
   }
-`;
+`
 
 export const UserMenuButton = styled.button`
   width: 100%;

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/operations';
 import {
   ContactComponent,
@@ -8,8 +8,7 @@ import {
   ContactName,
 } from './Contacts.styled';
 
-
-const Contact = ({ id, name, number}) => {
+const Contact = ({ id, name, number }) => {
   const dispatch = useDispatch();
 
   return (
@@ -17,23 +16,20 @@ const Contact = ({ id, name, number}) => {
       <ContactName>
         {name}: <ContactTel href="tel:({number})">{number}</ContactTel>
       </ContactName>
-      <DelContactBtn onClick={() => dispatch(deleteContact(id))}>Delete</DelContactBtn>
+        <DelContactBtn onClick={() => dispatch(deleteContact(id))}>
+          Delete
+        </DelContactBtn>
     </ContactComponent>
   );
 };
 
-export default Contact
+export default Contact;
 
 Contact.propTypes = {
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    number: PropTypes.string.isRequired,
-  };
-
-
-
-
-
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+};
 
 // ========================== варіант css-модулі ==================
 

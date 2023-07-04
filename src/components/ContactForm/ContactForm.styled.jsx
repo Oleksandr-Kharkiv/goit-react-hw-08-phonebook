@@ -5,7 +5,7 @@ export const ContactFormComponent = styled.form`
     flex-direction: column;
     gap: 15px;
     padding: 30px;
-    max-width: 400px;
+    max-width: 450px;
     height: auto;
     border-radius: 5px;
     background-color: var(--background-color-component);

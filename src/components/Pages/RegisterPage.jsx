@@ -1,13 +1,11 @@
-import RegisterForm from '../RegisterForm/RegisterForm'
-
+import RegisterForm from '../RegisterForm/RegisterForm';
 
 const RegisterPage = () => {
-  
-    return (
-      <div className="wrap">
-        <RegisterForm/>
-      </div>
-    );
-  };
-  
+  return (
+    <>
+      <RegisterForm />
+    </>
+  );
+};
+
 export default RegisterPage;

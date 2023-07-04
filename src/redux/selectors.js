@@ -6,6 +6,7 @@ export const selectError = state => state.contacts.error;
 export const selectFilter = state => state.filters;
 export const selectIsLoggedIn = state => state.auth.isLoggedIn;
 export const selectUserName = state => state.auth.user.name;
+export const selectisFetchCurrentUser = state => state.auth.isFetchCurrentUser;
 
 /*---------------------------------- селектор, який вираховується ---*/
 export const selectVisibleContacts = createSelector(

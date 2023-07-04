@@ -29,7 +29,8 @@ const ContactForm = () => {
 
     if (isInMyContacts) {
       form.reset();
-      return alert(`${newName} is already in contacts`);
+      alert(`${newName} is already in contacts`);
+      return 
     }
     const newContact = {
       name: form.elements.name.value,

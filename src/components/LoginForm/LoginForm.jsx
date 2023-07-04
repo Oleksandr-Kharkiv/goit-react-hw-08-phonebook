@@ -12,6 +12,7 @@ const LoginForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    console.log(`це з LoginForm`);
     console.log(e);
     const form = e.target;
 

@@ -90,8 +90,8 @@ export const fetchContacts = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const response = await axios.get('/contacts');
-      // console.log(`це з fetchContacts:`);
-      // console.log(response.data);
+      console.log(`це з fetchContacts:`);
+      console.log(response.data);
       return response.data;
       // const {data} = await axios.get("/contacts");                      /* з деструктуризацією */
       // return data;
