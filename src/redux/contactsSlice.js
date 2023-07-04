@@ -45,21 +45,19 @@ export const contactsSlice = createSlice({
       state.error = null;
       const index = state.items.findIndex(
         contact => contact.id === action.payload.id
-        );
-        state.items.splice(index, 1);
-      });
-      builder.addCase(deleteContact.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      });
-    },
-  });
-  
-  export const contactsReducer = contactsSlice.reducer;
+      );
+      state.items.splice(index, 1);
+    });
+    builder.addCase(deleteContact.rejected, (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    });
+  },
+});
 
+export const contactsReducer = contactsSlice.reducer;
 
-  /*--------------------------------------hw-07----- старий варіант запису extraReducers ---------------------*/
-
+/*--------------------------------------hw-07----- старий варіант запису extraReducers ---------------------*/
 
 // const handlePending = state => {
 //   state.isLoading = true;
@@ -73,37 +71,33 @@ export const contactsSlice = createSlice({
 // export const contactsSlice = createSlice({
 //   name: 'contacts',
 //   initialState: initialState,
-  // extraReducers: {
-  //   [fetchContacts.pending]: handlePending,
-  //   [fetchContacts.fulfilled](state, action) {
-  //     state.isLoading = false;
-  //     state.error = null;
-  //     state.items = action.payload;
-  //   },
-  //   [fetchContacts.rejected]: handleRejected,
-  //   [addContact.pending]: handlePending,
-  //   [addContact.fulfilled](state, action) {
-  //     state.isLoading = false;
-  //     state.error = null;
-  //     state.items.unshift(action.payload);
-  //   },
-  //   [addContact.rejected]: handleRejected,
-  //   [deleteContact.pending]: handlePending,
-  //   [deleteContact.fulfilled](state, action) {
-  //     state.isLoading = false;
-  //     state.error = null;
-  //     const index = state.items.findIndex(
-  //       contact => contact.id === action.payload.id
-  //     );
-  //     state.items.splice(index, 1);
-  //   },
-  //   [deleteContact.rejected]: handleRejected,
-  // },
-  // })
-
-
-
-
+// extraReducers: {
+//   [fetchContacts.pending]: handlePending,
+//   [fetchContacts.fulfilled](state, action) {
+//     state.isLoading = false;
+//     state.error = null;
+//     state.items = action.payload;
+//   },
+//   [fetchContacts.rejected]: handleRejected,
+//   [addContact.pending]: handlePending,
+//   [addContact.fulfilled](state, action) {
+//     state.isLoading = false;
+//     state.error = null;
+//     state.items.unshift(action.payload);
+//   },
+//   [addContact.rejected]: handleRejected,
+//   [deleteContact.pending]: handlePending,
+//   [deleteContact.fulfilled](state, action) {
+//     state.isLoading = false;
+//     state.error = null;
+//     const index = state.items.findIndex(
+//       contact => contact.id === action.payload.id
+//     );
+//     state.items.splice(index, 1);
+//   },
+//   [deleteContact.rejected]: handleRejected,
+// },
+// })
 
 /*----------------------------------hw-06---------контакти зберігаються у глобальному стайті та local storage--------*/
 

@@ -30,7 +30,7 @@ export const authSlice = createSlice({
       state.isLoggedIn = false;
       // state.error = action.payload;
     });
-    builder.addCase(logOut.fulfilled, (state, action) => {
+    builder.addCase(logOut.fulfilled, (state) => {
       state.user = { name: null, email: null };
       state.token = null;
       state.isLoggedIn = false;
@@ -41,7 +41,6 @@ export const authSlice = createSlice({
     builder.addCase(fetchCurrentUser.fulfilled, (state, action) => {
       state.isFetchCurrentUser = false;
       state.user = action.payload;
-      state.token = action.payload.token;
       state.isLoggedIn = true;
     });
     builder.addCase(fetchCurrentUser.rejected, (state, action) => {

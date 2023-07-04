@@ -1,16 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { UserMenuComponent, UserMenuTitle, UserMenuButton } from './UserMenu.styled';
 import { logOut } from '../../../redux/operations'
-import { selectUserName } from 'redux/selectors';
+import { selectUserEmail } from 'redux/selectors';
 
 const UserMenu = () => {
   const dispatch = useDispatch();
-  const userName = useSelector(selectUserName);
-  console.log(userName);
+  const userEmail = useSelector(selectUserEmail);
+  // console.log(userEmail);
  
   return (
       <UserMenuComponent>
-        <UserMenuTitle>Welcome, {userName}</UserMenuTitle>
+        <UserMenuTitle>Welcome, {userEmail}</UserMenuTitle>
         <UserMenuButton type="button" onClick={() => dispatch(logOut())}>Logout</UserMenuButton>
       </UserMenuComponent>
   );
