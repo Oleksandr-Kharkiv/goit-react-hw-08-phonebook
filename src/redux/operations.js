@@ -72,7 +72,7 @@ export const fetchCurrentUser = createAsyncThunk(
     }
     token.set(
       persistedToken
-    ); /* додаю токен з local storage в заголовок axios.get запиту */
+      ); /* додаю токен з local storage в заголовок axios.get запиту */
     try {
       const { data } = await axios.get('/users/current');
       // console.log(`це з fetchCurrentUser`);
@@ -80,7 +80,7 @@ export const fetchCurrentUser = createAsyncThunk(
       return data;
     } catch (e) {
       // console.log(`це з fetchCurrentUser`);
-      return console.log(e.message);
+      return thunkAPI.rejectWithValue(e.message);
     }
   }
 );

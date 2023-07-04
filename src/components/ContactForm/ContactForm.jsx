@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'; //  для відправки та отримання даних з лобального state
 import { nanoid } from '@reduxjs/toolkit'; //  для генерації випадкових ID номерів
-import { useState } from 'react'; // для створення локального state
 import { addContact } from 'redux/operations';
 import {
   ContactFormComponent,
@@ -26,17 +25,17 @@ const ContactForm = () => {
       contact => contact.name.toLowerCase() === newName.toLowerCase()
     );
 
-    if (isInMyContacts) {
+    if (isInMyContacts || newName === "") {
       form.reset();
       alert(`${newName} is already in contacts`);
       return 
-    }
-    const newContact = {
+    } else {const newContact = {
       name: form.elements.name.value,
       number: form.elements.number.value,
     }
     dispatch(addContact(newContact));
     form.reset();
+  }
   };
 
   return (

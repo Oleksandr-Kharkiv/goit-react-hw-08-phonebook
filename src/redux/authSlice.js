@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { register, logIn, logOut, fetchCurrentUser } from '../redux/operations';
 
 const initialState = {
-  user: { name: '', email: null },
+  user: { name: null, email: null },
   token: null,
   isLoggedIn: false,
   isFetchCurrentUser: false,
@@ -40,8 +40,8 @@ export const authSlice = createSlice({
     });
     builder.addCase(fetchCurrentUser.fulfilled, (state, action) => {
       state.isFetchCurrentUser = false;
-      state.user = action.payload.user;
-      // state.token = action.payload.token;
+      state.user = action.payload;
+      state.token = action.payload.token;
       state.isLoggedIn = true;
     });
     builder.addCase(fetchCurrentUser.rejected, (state, action) => {
