@@ -11,7 +11,6 @@ import {
 import { selectContacts } from 'redux/selectors';
 
 const ContactForm = () => {
-  const [newName, setNewName] = useState(''); /* локальний state для форми (потрібно тільки ім'я для порівнняння з нововведеними даними) */
   const dispatch = useDispatch();  /* отримую посилання на метод useDispatch() для відправки даних у глобальний state */
   const myContacts = useSelector(selectContacts);  /* отримую масив об'єктів (контактів) з глобального state */
   let nameInputId = nanoid();
@@ -21,7 +20,7 @@ const ContactForm = () => {
     e.preventDefault();
 
     const form = e.target;
-    setNewName(form.elements.name.value);
+    const newName = form.elements.name.value;
 
     let isInMyContacts = myContacts.find(
       contact => contact.name.toLowerCase() === newName.toLowerCase()
